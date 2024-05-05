@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block contain %}
+<style>
+    table,th,td{
+        style="color:#ee4e34;
+    }
+</style>
+<form action="{% url 'search_data' %}" method="POST" style="font-size:25px;">
+  {% csrf_token %}
+  <label style="color:#ee4e34;">Choose a Employee Field:</label>
+  <select name="emp" style="font-size:20px;color:#ee4e34;" >
+    <option value="name" style="color:#ee4e34;">Name</option>
+    <option value="age" style="color:#ee4e34;">Age</option>
+    <option value="city" style="color:#ee4e34;">City</option>
+    <option value="phone" style="color:#ee4e34;">Phone</option>
+    <option value="department" style="color:#ee4e34;">Department</option>
+    <option value="salary" style="color:#ee4e34;">Salary</option>
+  </select>
+  <input type="text" name="data" style="font-size:19px;" required>
+
+  <input type="submit" value="Submit" style="width:80px;height:27px;background-color:#ee4e34;color:white;" >
+</form>
+
+
+
+{% if results %}
+
+    <h1 style="color:#ee4e34;">Search Results:</h1>
+    <table style="text-align:center;font-size:25px;color:#ee4e34;">
+        <tr>
+            <th style="padding-left:15px;">No</th>
+            <th style="padding-left:15px;">Name</th>
+            <th style="padding-left:15px;">Age</th>
+            <th style="padding-left:15px;">City</th>
+            <th style="padding-left:15px;">Phone</th>
+            <th style="padding-left:15px;">Department</th>
+            <th style="padding-left:15px;">Salary</th>
+
+        </tr>
+        {% for employee in results %}
+        <tr>
+            <td style="padding-left:15px;">{{ employee.id }}</td>
+            <td style="padding-left:15px;">{{ employee.name }}</td>
+            <td style="padding-left:15px;">{{ employee.age }}</td>
+            <td style="padding-left:15px;">{{ employee.city }}</td>
+            <td style="padding-left:15px;">{{ employee.phone }}</td>
+            <td style="padding-left:15px;">{{ employee.department }}</td>
+            <td style="padding-left:15px;">{{ employee.salary }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <h1 style="color:#ee4e34;">No results found.</h1>
+{% endif %}
+
+
+{% endblock %}

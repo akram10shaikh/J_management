@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block contain %}
+{% csrf_token %}
+    {{ output }}
+<style>
+table,td,td{
+    color:#ee4e34;
+}
+</style>
+    <form action="{% url 'employee' %}" method="POST" style="font-size:25px;">
+{% csrf_token %}
+        <h3 style="color:#ee4e34;">Insert Employee Details</h3>
+        <table>
+            <tr><td>Employee Name </td><td><input type="text" name="name"> </td></tr>
+            <tr><td>Employee Age </td><td><input type="number" name="age"></td></tr>
+            <tr><td>Employee City </td><td><input type="text" name="city"> </td></tr>
+            <tr><td>Employee Phone </td><td><input type="number" name="phone"></td></tr>
+            <tr><td>Employee Department </td><td><input type="text" name="department"> </td></tr>
+            <tr><td>Employee Salary </td><td><input type="number" name="salary"></td></tr>
+            <tr><td></td><td align="right"><input type="submit" value="submit" style="width:80px;height:25px;color:white;background-color:#ee4e34;"></td></tr>
+            <tr><td></td><td style="color:blue;"> {% if msg %}
+                                {{ msg }}
+                              {% endif %}
+                                </td></tr></table>
+
+    </form>
+
+
+{% endblock %}

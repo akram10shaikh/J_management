@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block contain %}
+{% csrf_token %}
+
+<h1 style="color:#ee4e34;">User successfully logged In</h1>
+<p style="color:#ee4e34;font-size:25px;">Welcome to the J-Bakery Employee Management Website</p>
+
+<ul>
+    <li style="color:#ee4e34;font-size:20px;"> This is the home page of the webiste </li>
+    <li style="color:#ee4e34;font-size:20px;">In this website you can check all the details of employee</li>
+    <li style="color:#ee4e34;font-size:20px;">You can add/update and remove the employee details</li>
+
+</ul>
+{% endblock %}

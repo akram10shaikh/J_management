@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+
+{% block contain %}
+<style>
+table,td,td{
+    color:#ee4e34;
+}
+
+</style>
+
+<table style="text-align:center;font-size:20px;">
+    <h1 style="color:#ee4e34;">Employee Details</h1>
+    <tr>
+
+        <th style="padding-left:30px;">Name</th>
+        <th style="padding-left:30px;">Age</th>
+        <th style="padding-left:30px;">City</th>
+        <th style="padding-left:30px;">Phone</th>
+        <th style="padding-left:30px;">Department</th>
+        <th style="padding-left:30px;">Salary</th>
+    </tr>
+    {% for data in user2 %}
+    <tr>
+
+        <td style="padding-left:20px;">{{data.name}}</td>
+        <td style="padding-left:20px;">{{data.age}}</td>
+        <td style="padding-left:20px;">{{data.city}}</td>
+        <td style="padding-left:20px;">{{data.phone}}</td>
+        <td style="padding-left:20px;">{{data.department}}</td>
+        <td style="padding-left:20px;">{{data.salary}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock %}

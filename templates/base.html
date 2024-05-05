@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Base</title>
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+
+<style>
+    a {
+    text-decoration:none;
+    }
+    a:hover {
+        background-color:blue;
+    }
+</style>
+</head>
+<body style="background-color:white;  ">
+
+<div class="f3" align="center" style="background-color:#ee4e34;color:#fcedda;font-family:montserrat;padding-bottom:20px;padding-top:20px;"><strong>J-Bakery Employee Management</strong></div>
+
+
+<div align="right" style="font-size:20px;background-color:#fcedda;">
+    {% if request.user.is_authenticated %}
+       <b style="padding-right:10px;color:#ee4e34;"> User :  {{ request.user.username }}</b> <a href="{% url 'log_out' %}" style="margin-right:20px;color:black;">Logout</a>
+    {% else %}
+        <a href="{% url 'login_page' %}" style="margin-right:20px;">Login</a>
+    {% endif %}
+</div>
+<div class="row">
+  <div class="column left" style="background-color:#ee4e34;padding-top:50px;">
+    <ul >
+        <li style="color:white;"><a href="{% url 'log1' %}" style="color:#fcedda;text-decoration:none;">Home</a> </li>
+        <li style="color:white;"><a href="{% url 'add_data' %}" style="color:#fcedda;text-decoration:none;" >Add</a> </li>
+        <li style="color:white;"><a href="{% url 'display_one' %}" style="color:#fcedda;text-decoration:none;">Display</a> </li>
+        <li style="color:#fcedda;"><a href="{% url 'edit' %}" style="color:#fcedda;"> Edit Record</a></li>
+    </ul>
+  </div>
+  <div class="column right" style="background-color:#fcedda;padding-left:80px;padding-top:50px;">
+     {% block contain %}
+
+
+      {% endblock %}
+  </div>
+  </div>
+
+ {% include 'footer.html' %}
+
+
+
+</body>
+</html>

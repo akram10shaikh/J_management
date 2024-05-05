@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block contain %}
+{% if results %}
+    <h2>Search Results:</h2>
+    <table style="text-align:center;font-size:25px;">
+        <tr>
+            <th style="padding-left:20px;">No</th>
+            <th style="padding-left:30px;">Name</th>
+            <th style="padding-left:30px;">Age</th>
+            <th style="padding-left:30px;">City</th>
+            <th style="padding-left:30px;">Phone</th>
+            <th style="padding-left:30px;">Department</th>
+            <th style="padding-left:30px;">Salary</th>
+        </tr>
+        {% for employee in results %}
+        <tr>
+            <td style="padding-left:20px;">{{ employee.id }}</td>
+            <td style="padding-left:20px;">{{ employee.name }}</td>
+            <td style="padding-left:20px;">{{ employee.age }}</td>
+            <td style="padding-left:20px;">{{ employee.city }}</td>
+            <td style="padding-left:20px;">{{ employee.phone }}</td>
+            <td style="padding-left:20px;">{{ employee.department }}</td>
+            <td style="padding-left:20px;">{{ employee.salary }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+{% endblock %}

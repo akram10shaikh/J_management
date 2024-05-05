@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block contain %}
+<style>
+    table,tr,td,th{
+        color:#ee4e34;
+    }
+</style>
+
+<table style="font-size:20px;">
+
+  <form action="{% url 'edit_apply' %}" method="POST" style="font-size:25px;">
+{% csrf_token %}
+        <h1 style="color:#ee4e34;"> Update Employee Details</h1>
+
+            <tr><td>Employee No </td><td><input type="text" name="id" value="{{data.id}}"> </td></tr>
+            <tr><td>Employee Name </td><td><input type="text" name="name" value="{{data.name}}"> </td></tr>
+            <tr><td>Employee Age </td><td><input type="number" name="age" value="{{data.age}}"></td></tr>
+            <tr><td>Employee City </td><td><input type="text" name="city" value="{{data.city}}"> </td></tr>
+            <tr><td>Employee Phone </td><td><input type="number" name="phone" value="{{data.phone}}"></td></tr>
+            <tr><td>Employee Department </td><td><input type="text" name="department" value="{{data.department}}"> </td></tr>
+            <tr><td>Employee Salary </td><td><input type="number" name="salary" value="{{data.salary}}"></td></tr>
+            <tr><td></td><td align="right"><input type="submit" value="submit" style="width:80px;height:25px;color:white;background-color:#038571;"></td></tr>
+<tr><td></td><td style="color:blue;">{% if msg %}
+                {{ msg }}
+            {% endif %}</td>
+        </tr>
+
+    </form>
+
+</table>
+
+
+
+{% endblock %}

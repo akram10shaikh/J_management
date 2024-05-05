@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block contain %}
+<style>
+    a {
+    text-decoration:none;
+    }
+    a:hover {
+        background-color:blue;
+
+    }
+</style>
+
+<ul>
+    <li style="color:#ee4e34;"><a href="{% url 'display' %}" style="color:#ee4e34;"> Display List</a></li>
+
+    <li style="color:#ee4e34;"><a href="{% url 'search' %}" style="color:#ee4e34;"> Search Record</a></li>
+
+</ul>
+
+{% endblock %}

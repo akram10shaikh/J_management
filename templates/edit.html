@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block contain %}
+<style>
+table,td,td{
+    color:#ee4e34;
+}
+</style>
+
+    <h1 style="color:#ee4e34;text-decoration:none;">Edit Records</h1>
+    {% if msg %}
+        <p style="font-size:20px;color:#ee4e34;">{{ msg }}</p>
+    {% endif %}
+    <table style="font-size:20px;color:#ee4e34;">
+        <tr>
+
+            <th style="padding-left:20px;color:#ee4e34;">Name</th>
+            <th style="padding-left:20px;color:#ee4e34;">Age</th>
+            <th style="padding-left:20px;color:#ee4e34;">City</th>
+            <th style="padding-left:20px;color:#ee4e34;">Phone</th>
+            <th style="padding-left:20px;color:#ee4e34;">Department</th>
+            <th style="padding-left:20px;color:#ee4e34;">Salary</th>
+            <th style="padding-left:20px;color:#ee4e34;">Actions</th>
+        </tr>
+        {% for record in user2 %}
+            <tr>
+
+                <td style="padding-left:20px;">{{ record.name }}</td>
+                <td style="padding-left:20px;">{{ record.age }}</td>
+                <td style="padding-left:20px;">{{ record.city }}</td>
+                <td style="padding-left:20px;">{{ record.phone }}</td>
+                <td style="padding-left:20px;">{{ record.department }}</td>
+                <td style="padding-left:20px;">{{ record.salary }}</td>
+                <td>
+                    <a href="{% url 'edit_record' record.id %}" style="padding-left:20px;color:#ee4e34;" >Edit</a>
+                    <a href="{% url 'delete_record' record.id %}" style="padding-left:5px;color:#ee4e34;">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+{% endblock %}

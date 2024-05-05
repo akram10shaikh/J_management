@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<style>
+p {
+color:#ee4e34;
+}
+</style>
+{% block contain %}
+    <h1>Delete Record</h1>
+    <p style="font-size:20px;">Are you sure you want to delete the following record?</p>
+    <p style="font-size:20px;color:#ee4e34;" ><strong>Name:</strong> {{ data.name }}</p>
+    <p style="font-size:20px;color:#ee4e34;"><strong>Age:</strong> {{ data.age }}</p>
+    <p style="font-size:20px;color:#ee4e34;"><strong>City:</strong> {{ data.city }}</p>
+    <p style="font-size:20px;color:#ee4e34;"><strong>Phone:</strong> {{ data.phone }}</p>
+    <p style="font-size:20px;color:#ee4e34;"><strong>Department:</strong> {{ data.department }}</p>
+    <p style="font-size:20px;color:#ee4e34;"><strong>Salary:</strong> {{ data.salary }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm Delete" style="background-color:#ee4e34;color:white;">
+    </form>
+{% endblock %}
